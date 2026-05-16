@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晓黎个人成长路线规划表</title>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.json">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    border: 1px solid #334155;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.dashboard {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.card {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.card h3 {
+    color: #94a3b8;
+    margin-bottom: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.card .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.card .progress-container progress {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    appearance: none;
+    background: #334155;
+}
+
+.card .progress-container progress::-webkit-progress-bar {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+.card .progress-container progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 4px;
+}
+
+.card .progress-container progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 4px;
+}
+
+.card .progress-percent {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #10b981;
+    min-width: 35px;
+    text-align: right;
+}
+
+main {
+    margin-bottom: 24px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+.left-column h2,
+.right-column h2 {
+    margin-bottom: 20px;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-list input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+    cursor: pointer;
+}
+
+.task-list label {
+    cursor: pointer;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+}
+
+.task-list input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+/* ==================== 新技能树样式 ==================== */
+
+.skill-category {
+    margin-bottom: 24px;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.category-info h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.category-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-wrapper progress {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    appearance: none;
+    background: #334155;
+}
+
+.progress-wrapper progress::-webkit-progress-bar {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+.progress-wrapper progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 4px;
+}
+
+.progress-wrapper progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 4px;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3b82f6;
+    min-width: 40px;
+    text-align: right;
+}
+
+.hours-info {
+    font-size: 0.8125rem;
+    color: #94a3b8;
+}
+
+.toggle-btn {
+    padding: 6px 16px;
+    background: #334155;
+    border: none;
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: #475569;
+    color: #e2e8f0;
+}
+
+.skill-group {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.skill-group.expanded {
+    max-height: 2000px;
+}
+
+.level-group {
+    margin-bottom: 20px;
+}
+
+.level-group:last-child {
+    margin-bottom: 0;
+}
+
+.level-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #334155;
+}
+
+.level-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-item {
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #334155;
+    transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+    border-color: #475569;
+}
+
+.skill-item.completed {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.skill-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.skill-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #10b981;
+    cursor: pointer;
+}
+
+.skill-checkbox label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.skill-item.completed .skill-checkbox label {
+    color: #10b981;
+    text-decoration: line-through;
+}
+
+.skill-description {
+    font-size: 0.8125rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-hours {
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #1e293b;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+footer {
+    padding-bottom: 20px;
+}
+
+.deposit-form {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+}
+
+.deposit-form input[type="number"] {
+    flex: 1;
+    padding: 12px 16px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: #e2e8f0;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.deposit-form input[type="number"]:focus {
+    border-color: #3b82f6;
+}
+
+.deposit-form input[type="number"]::placeholder {
+    color: #64748b;
+}
+
+.deposit-form button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.deposit-form button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    header {
+        padding: 16px;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+    }
+
+    .dashboard {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card h3 {
+        font-size: 0.8125rem;
+    }
+
+    .card .value {
+        font-size: 1.25rem;
+    }
+
+    .main-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .left-column,
+    .right-column {
+        padding: 16px;
+    }
+
+    .left-column h2,
+    .right-column h2 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+    .task-list li {
+        gap: 10px;
+    }
+
+    .task-list input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .task-list label {
+        font-size: 0.875rem;
+    }
+
+    /* 技能树移动端适配 */
+    .skill-category {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .category-info h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .progress-wrapper {
+        width: 100%;
+    }
+
+    .toggle-btn {
+        align-self: flex-end;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .skill-item {
+        padding: 12px;
+    }
+
+    .skill-checkbox {
+        gap: 8px;
+    }
+
+    .skill-checkbox input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .skill-checkbox label {
+        font-size: 0.875rem;
+    }
+
+    .skill-description {
+        font-size: 0.75rem;
+    }
+
+    .skill-hours {
+        font-size: 0.6875rem;
+        padding: 3px 6px;
+    }
+
+    .deposit-form {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .deposit-form input[type="number"],
+    .deposit-form button {
+        padding: 12px;
+        font-size: 0.875rem;
+    }
+}
+
+/* 更小屏幕适配 */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+
+    .skill-category {
+        padding: 12px;
+    }
+
+    .skill-item {
+        padding: 10px;
+    }
+
+    .skill-description {
+        display: none;
+    }
+}
+    </style>
+
+       <!-- 下面这几行是PWA需要的 -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#1e293b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="规划表">
+
+
+</head>
+<body>
+    <header>
+        <h1>🎯 我的人生计划</h1>
+    </header>
+    
+    <section class="dashboard">
+        <div class="card">
+            <h3>💰 存款目标</h3>
+            <div class="value">¥ <span id="currentMoney">0</span> / <span id="targetMoney">30000</span></div>
+            <div class="progress-container">
+                <progress id="moneyProgress" value="0" max="100"></progress>
+                <span id="moneyProgressText" class="progress-percent">0%</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>📚 25岁之前要做的事</h3>
+            <div class="value"><span id="passedExam">0</span> / <span id="totalExam">5</span> 件</div>
+        </div>
+        <div class="card">
+            <h3>⏰ 倒计时</h3>
+            <div class="value">距离18岁还有 <span id="countdown">-</span> 天</div>
+        </div>
+    </section>
+    
+    <main class="main-content">
+        <section class="left-column">
+            <h2>🚀 人生路线图</h2>
+            <ul class="task-list">
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">进厂打工,稳定存款3w</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">完成HTML/CSS基础学习</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">报名南昌大学自考</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task4">
+                    <label for="task4">学习全栈编程</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task5">
+                    <label for="task5">搭建个人博客网站</label>
+                </li>
+            </ul>
+        </section>
+        
+        <section class="right-column">
+            <h2>🛠️ 技能树</h2>
+            <div id="skill-tree-container"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <form class="deposit-form" id="depositForm">
+            <input type="number" id="depositInput" placeholder="输入今日存款" min="0" step="0.01">
+            <button type="submit">更新存款</button>
+        </form>
+    </footer>
+
+    <script>
+/**
+ * 个人成长路线规划表 - JavaScript逻辑
+ */
+
+// ==================== 数据存储键名常量 ====================
+const STORAGE_KEYS = {
+    CURRENT_MONEY: 'growth_plan_current_money',
+    TARGET_MONEY: 'growth_plan_target_money',
+    PASSED_EXAM: 'growth_plan_passed_exam',
+    TOTAL_EXAM: 'growth_plan_total_exam',
+    TASKS: 'growth_plan_tasks',
+    SKILLS: 'growth_plan_skills'
+};
+
+// ==================== 默认数据配置 ====================
+const DEFAULT_DATA = {
+    currentMoney: 0,
+    targetMoney: 30000,
+    passedExam: 0,
+    totalExam: 5,
+    tasks: {
+        task1: false,
+        task2: false,
+        task3: false,
+        task4: false,
+        task5: false
+    },
+    skills: {
+        HTMLCSS: 0,
+        JavaScript: 0,
+        React: 0,
+        NodeJS: 0,
+        MySQL: 0,
+        Redis: 0,
+        Python: 0,
+        NumPyPandas: 0,
+        MachineLearning: 0
+    }
+};
+
+// ==================== DOM元素引用 ====================
+let elements = {};
+
+function initElements() {
+    elements = {
+        currentMoney: document.getElementById('currentMoney'),
+        targetMoney: document.getElementById('targetMoney'),
+        moneyProgress: document.getElementById('moneyProgress'),
+        moneyProgressText: document.getElementById('moneyProgressText'),
+        passedExam: document.getElementById('passedExam'),
+        totalExam: document.getElementById('totalExam'),
+        countdown: document.getElementById('countdown'),
+        depositForm: document.getElementById('depositForm'),
+        depositInput: document.getElementById('depositInput'),
+        taskCheckboxes: document.querySelectorAll('.task-list input[type="checkbox"]'),
+        categoryButtons: document.querySelectorAll('.category-btn'),
+        skillGroups: document.querySelectorAll('.skill-group')
+    };
+}
+
+// ==================== 核心数据对象 ====================
+let appData = {
+    currentMoney: DEFAULT_DATA.currentMoney,
+    targetMoney: DEFAULT_DATA.targetMoney,
+    passedExam: DEFAULT_DATA.passedExam,
+    totalExam: DEFAULT_DATA.totalExam,
+    tasks: { ...DEFAULT_DATA.tasks },
+    skills: { ...DEFAULT_DATA.skills }
+};
+
+// ==================== 工具函数 ====================
+function loadFromStorage(key, defaultValue) {
+    try {
+        const stored = localStorage.getItem(key);
+        return stored ? JSON.parse(stored) : defaultValue;
+    } catch (error) {
+        console.warn(`读取存储失败 (${key}):`, error);
+        return defaultValue;
+    }
+}
+
+function saveToStorage(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+        console.warn(`保存存储失败 (${key}):`, error);
+    }
+}
+
+function calculateDaysRemaining(targetDate) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const target = new Date(targetDate);
+    target.setHours(0, 0, 0, 0);
+    const diffTime = target - today;
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+}
+
+function getCompletedTaskCount() {
+    return Object.values(appData.tasks).filter(completed => completed).length;
+}
+
+// ==================== 初始化函数 ====================
+function initData() {
+    appData.currentMoney = loadFromStorage(STORAGE_KEYS.CURRENT_MONEY, DEFAULT_DATA.currentMoney);
+    appData.targetMoney = loadFromStorage(STORAGE_KEYS.TARGET_MONEY, DEFAULT_DATA.targetMoney);
+    appData.passedExam = loadFromStorage(STORAGE_KEYS.PASSED_EXAM, DEFAULT_DATA.passedExam);
+    appData.totalExam = loadFromStorage(STORAGE_KEYS.TOTAL_EXAM, DEFAULT_DATA.totalExam);
+    appData.tasks = loadFromStorage(STORAGE_KEYS.TASKS, { ...DEFAULT_DATA.tasks });
+    const savedSkills = loadFromStorage(STORAGE_KEYS.SKILLS, {});
+    appData.skills = { ...DEFAULT_DATA.skills, ...savedSkills };
+}
+
+function updateUI() {
+    elements.currentMoney.textContent = appData.currentMoney.toFixed(2);
+    elements.targetMoney.textContent = appData.targetMoney.toFixed(2);
+    
+    const moneyProgress = Math.min((appData.currentMoney / appData.targetMoney) * 100, 100);
+    if (elements.moneyProgress) {
+        elements.moneyProgress.value = moneyProgress;
+    }
+    if (elements.moneyProgressText) {
+        elements.moneyProgressText.textContent = `${Math.round(moneyProgress)}%`;
+    }
+    
+    elements.passedExam.textContent = appData.passedExam;
+    elements.totalExam.textContent = appData.totalExam;
+    
+    const birthday = new Date('2009-06-04');
+    const eighteenBirthday = new Date(birthday);
+    eighteenBirthday.setFullYear(birthday.getFullYear() + 18);
+    const daysRemaining = calculateDaysRemaining(eighteenBirthday);
+    elements.countdown.textContent = daysRemaining;
+    
+    elements.taskCheckboxes.forEach(checkbox => {
+        const taskId = checkbox.id;
+        checkbox.checked = appData.tasks[taskId] || false;
+    });
+}
+
+// ==================== 事件监听绑定 ====================
+function bindTaskEvents() {
+    elements.taskCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const taskId = this.id;
+            appData.tasks[taskId] = this.checked;
+            saveToStorage(STORAGE_KEYS.TASKS, appData.tasks);
+            
+            const completedCount = getCompletedTaskCount();
+            appData.passedExam = completedCount;
+            elements.passedExam.textContent = appData.passedExam;
+            saveToStorage(STORAGE_KEYS.PASSED_EXAM, appData.passedExam);
+        });
+    });
+}
+
+function bindDepositEvent() {
+    elements.depositForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const inputValue = elements.depositInput.value.trim();
+        
+        if (!inputValue) {
+            alert('请输入存款金额');
+            return;
+        }
+        
+        const depositAmount = parseFloat(inputValue);
+        
+        if (isNaN(depositAmount)) {
+            alert('请输入有效的数字');
+            elements.depositInput.value = '';
+            return;
+        }
+        
+        if (depositAmount < 0) {
+            alert('存款金额不能为负数');
+            elements.depositInput.value = '';
+            return;
+        }
+        
+        appData.currentMoney += depositAmount;
+        saveToStorage(STORAGE_KEYS.CURRENT_MONEY, appData.currentMoney);
+        elements.currentMoney.textContent = appData.currentMoney.toFixed(2);
+        elements.depositInput.value = '';
+        alert(`成功存入 ¥${depositAmount.toFixed(2)}`);
+    });
+}
+
+function bindCategoryEvents() {
+    elements.categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            elements.categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            elements.skillGroups.forEach(group => {
+                group.classList.remove('active');
+                if (group.dataset.category === category) {
+                    group.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
+// ==================== 主入口函数 ====================
+function initApp() {
+    initElements();
+    initData();
+    updateUI();
+    bindTaskEvents();
+    bindDepositEvent();
+    bindCategoryEvents();
+    
+    if (typeof initSkillTree === 'function') {
+        initSkillTree();
+    }
+    
+    console.log('🎯 个人成长路线规划表初始化完成');
+}
+
+document.addEventListener('DOMContentLoaded', initApp);
+
+// ==================== 技能树模块 ====================
+const INITIAL_SKILLS_DATA = [
+    { id: 'fe-html', name: 'HTML5 语义化', category: 'frontend', level: '基础', description: '掌握HTML5语义化标签，构建结构清晰的页面', estimatedHours: 20, completed: false },
+    { id: 'fe-css', name: 'CSS3 基础', category: 'frontend', level: '基础', description: '掌握CSS选择器、盒模型、布局等核心概念', estimatedHours: 30, completed: false },
+    { id: 'fe-flexbox', name: 'Flexbox 弹性布局', category: 'frontend', level: '核心', description: '掌握Flexbox布局，实现复杂的页面排版', estimatedHours: 25, completed: false },
+    { id: 'fe-grid', name: 'CSS Grid 网格布局', category: 'frontend', level: '核心', description: '掌握Grid网格布局，构建二维布局系统', estimatedHours: 30, completed: false },
+    { id: 'fe-responsive', name: '响应式设计', category: 'frontend', level: '核心', description: '掌握媒体查询，实现多端适配', estimatedHours: 25, completed: false },
+    { id: 'fe-js-es6', name: 'JavaScript ES6+', category: 'frontend', level: '核心', description: '掌握ES6+新特性：箭头函数、解构、Promise等', estimatedHours: 40, completed: false },
+    { id: 'fe-js-dom', name: 'DOM 操作', category: 'frontend', level: '核心', description: '掌握DOM操作、事件处理、动画效果', estimatedHours: 35, completed: false },
+    { id: 'fe-vue3', name: 'Vue3 框架', category: 'frontend', level: '框架', description: '掌握Vue3组合式API、响应式系统、组件开发', estimatedHours: 60, completed: false },
+    { id: 'fe-vue-router', name: 'Vue Router', category: 'frontend', level: '框架', description: '掌握Vue Router路由管理、导航守卫', estimatedHours: 25, completed: false },
+    { id: 'fe-vuex', name: 'Pinia 状态管理', category: 'frontend', level: '框架', description: '掌握Pinia状态管理，实现跨组件数据共享', estimatedHours: 30, completed: false },
+    { id: 'fe-performance', name: '前端性能优化', category: 'frontend', level: '进阶', description: '掌握性能优化技巧：懒加载、代码分割、缓存策略', estimatedHours: 40, completed: false },
+    { id: 'be-nodejs', name: 'Node.js 基础', category: 'backend', level: '基础', description: '掌握Node.js运行时、模块系统、异步编程', estimatedHours: 35, completed: false },
+    { id: 'be-express', name: 'Express 框架', category: 'backend', level: '框架', description: '掌握Express路由、中间件、RESTful API设计', estimatedHours: 40, completed: false },
+    { id: 'be-mysql', name: 'MySQL 数据库', category: 'backend', level: '核心', description: '掌握MySQL数据库设计、SQL查询、索引优化', estimatedHours: 45, completed: false },
+    { id: 'be-sequelize', name: 'Sequelize ORM', category: 'backend', level: '框架', description: '掌握Sequelize ORM，实现数据库操作抽象', estimatedHours: 30, completed: false },
+    { id: 'be-redis', name: 'Redis 缓存', category: 'backend', level: '进阶', description: '掌握Redis缓存、Session管理、消息队列', estimatedHours: 35, completed: false },
+    { id: 'be-auth', name: '用户认证授权', category: 'backend', level: '核心', description: '掌握JWT、OAuth2、Session/Cookie认证机制', estimatedHours: 40, completed: false },
+    { id: 'be-security', name: 'Web 安全', category: 'backend', level: '进阶', description: '掌握XSS、CSRF、SQL注入等安全防护', estimatedHours: 35, completed: false },
+    { id: 'be-api', name: 'API 设计', category: 'backend', level: '核心', description: '掌握RESTful API设计规范、Swagger文档', estimatedHours: 25, completed: false },
+    { id: 'be-deploy', name: '部署运维', category: 'backend', level: '进阶', description: '掌握Docker、Nginx、PM2部署配置', estimatedHours: 40, completed: false },
+    { id: 'be-testing', name: '单元测试', category: 'backend', level: '进阶', description: '掌握Jest、Mocha测试框架，编写单元测试', estimatedHours: 30, completed: false },
+    { id: 'ds-python', name: 'Python 基础', category: 'datascience', level: '基础', description: '掌握Python语法、数据类型、函数、面向对象', estimatedHours: 40, completed: false },
+    { id: 'ds-numpy', name: 'NumPy 数值计算', category: 'datascience', level: '核心', description: '掌握NumPy数组操作、矩阵运算、广播机制', estimatedHours: 30, completed: false },
+    { id: 'ds-pandas', name: 'Pandas 数据分析', category: 'datascience', level: '核心', description: '掌握Pandas数据结构、数据清洗、数据聚合', estimatedHours: 45, completed: false },
+    { id: 'ds-matplotlib', name: 'Matplotlib 可视化', category: 'datascience', level: '核心', description: '掌握Matplotlib绘图、图表美化、交互式图表', estimatedHours: 30, completed: false },
+    { id: 'ds-seaborn', name: 'Seaborn 高级可视化', category: 'datascience', level: '核心', description: '掌握Seaborn统计可视化、热力图、分布图', estimatedHours: 25, completed: false },
+    { id: 'ds-ml-basics', name: '机器学习基础', category: 'datascience', level: '核心', description: '掌握监督学习、无监督学习、模型评估', estimatedHours: 50, completed: false },
+    { id: 'ds-scikit-learn', name: 'Scikit-learn', category: 'datascience', level: '框架', description: '掌握Scikit-learn算法库：分类、回归、聚类', estimatedHours: 45, completed: false },
+    { id: 'ds-deep-learning', name: '深度学习入门', category: 'datascience', level: '进阶', description: '掌握神经网络、CNN、RNN基础概念', estimatedHours: 60, completed: false },
+    { id: 'ds-tensorflow', name: 'TensorFlow/PyTorch', category: 'datascience', level: '框架', description: '掌握深度学习框架，构建和训练模型', estimatedHours: 70, completed: false },
+    { id: 'ds-nlp', name: '自然语言处理', category: 'datascience', level: '进阶', description: '掌握NLP基础：文本预处理、词向量、情感分析', estimatedHours: 55, completed: false }
+];
+
+let skillsData = [];
+
+const CATEGORY_CONFIG = {
+    frontend: { name: '前端开发', icon: '🎨', color: '#3b82f6' },
+    backend: { name: '后端开发', icon: '⚙️', color: '#10b981' },
+    datascience: { name: '数据科学', icon: '🧪', color: '#f59e0b' }
+};
+
+const LEVEL_ORDER = ['基础', '核心', '框架', '进阶'];
+
+function saveSkillsData() {
+    try {
+        localStorage.setItem('skillsData', JSON.stringify(skillsData));
+        return true;
+    } catch (error) {
+        console.error('保存技能数据失败:', error);
+        return false;
+    }
+}
+
+function loadSkillsData() {
+    try {
+        const savedData = localStorage.getItem('skillsData');
+        if (savedData) {
+            skillsData = JSON.parse(savedData);
+            skillsData = skillsData.map(skill => ({
+                ...INITIAL_SKILLS_DATA.find(s => s.id === skill.id) || skill,
+                ...skill
+            }));
+        } else {
+            skillsData = JSON.parse(JSON.stringify(INITIAL_SKILLS_DATA));
+        }
+        return skillsData;
+    } catch (error) {
+        console.error('加载技能数据失败:', error);
+        skillsData = JSON.parse(JSON.stringify(INITIAL_SKILLS_DATA));
+        return skillsData;
+    }
+}
+
+function calculateCategoryProgress(category) {
+    const categorySkills = skillsData.filter(skill => skill.category === category);
+    if (categorySkills.length === 0) return 0;
+    const completedCount = categorySkills.filter(skill => skill.completed).length;
+    return Math.round((completedCount / categorySkills.length) * 100);
+}
+
+function calculateCategoryHours(category) {
+    const categorySkills = skillsData.filter(skill => skill.category === category);
+    const totalHours = categorySkills.reduce((sum, skill) => sum + skill.estimatedHours, 0);
+    const completedHours = categorySkills.filter(skill => skill.completed).reduce((sum, skill) => sum + skill.estimatedHours, 0);
+    return { totalHours, completedHours };
+}
+
+function updateSkillCompletion(skillId, completed) {
+    const skill = skillsData.find(s => s.id === skillId);
+    if (skill) {
+        skill.completed = completed;
+        saveSkillsData();
+        updateCategoryProgress(skill.category);
+    }
+}
+
+function updateCategoryProgress(category) {
+    const progress = calculateCategoryProgress(category);
+    const hours = calculateCategoryHours(category);
+    
+    const progressBar = document.getElementById(`progress-${category}`);
+    const progressText = document.getElementById(`progress-text-${category}`);
+    const hoursText = document.getElementById(`hours-text-${category}`);
+    
+    if (progressBar) progressBar.value = progress;
+    if (progressText) progressText.textContent = `${progress}%`;
+    if (hoursText) hoursText.textContent = `${hours.completedHours}/${hours.totalHours}h`;
+}
+
+function toggleCategory(category) {
+    const skillGroup = document.getElementById(`skill-group-${category}`);
+    const toggleBtn = document.getElementById(`toggle-btn-${category}`);
+    
+    if (skillGroup && toggleBtn) {
+        const isExpanded = skillGroup.classList.toggle('expanded');
+        toggleBtn.textContent = isExpanded ? '收起' : '展开';
+    }
+}
+
+function renderSkillTree() {
+    const container = document.getElementById('skill-tree-container');
+    if (!container) return;
+    
+    let html = '';
+    
+    Object.keys(CATEGORY_CONFIG).forEach(category => {
+        const config = CATEGORY_CONFIG[category];
+        const categorySkills = skillsData.filter(skill => skill.category === category);
+        
+        const skillsByLevel = {};
+        LEVEL_ORDER.forEach(level => {
+            skillsByLevel[level] = categorySkills.filter(skill => skill.level === level);
+        });
+        
+        const progress = calculateCategoryProgress(category);
+        const hours = calculateCategoryHours(category);
+        
+        html += `
+            <div class="skill-category" data-category="${category}">
+                <div class="category-header">
+                    <div class="category-info">
+                        <h3>${config.icon} ${config.name}</h3>
+                        <div class="category-stats">
+                            <div class="progress-wrapper">
+                                <progress id="progress-${category}" value="${progress}" max="100"></progress>
+                                <span id="progress-text-${category}" class="progress-text">${progress}%</span>
+                            </div>
+                            <div class="hours-info" id="hours-text-${category}">
+                                ${hours.completedHours}/${hours.totalHours}h
+                            </div>
+                        </div>
+                    </div>
+                    <button id="toggle-btn-${category}" class="toggle-btn" onclick="toggleCategory('${category}')">
+                        展开
+                    </button>
+                </div>
+                
+                <div id="skill-group-${category}" class="skill-group">
+                    ${LEVEL_ORDER.map(level => {
+                        const levelSkills = skillsByLevel[level];
+                        if (levelSkills.length === 0) return '';
+                        
+                        return `
+                            <div class="level-group">
+                                <h4 class="level-title">${level}</h4>
+                                <div class="level-skills">
+                                    ${levelSkills.map(skill => `
+                                        <div class="skill-item ${skill.completed ? 'completed' : ''}">
+                                            <div class="skill-checkbox">
+                                                <input type="checkbox" 
+                                                       id="skill-${skill.id}" 
+                                                       ${skill.completed ? 'checked' : ''}
+                                                       onchange="updateSkillCompletion('${skill.id}', this.checked)">
+                                                <label for="skill-${skill.id}">${skill.name}</label>
+                                            </div>
+                                            <p class="skill-description">${skill.description}</p>
+                                            <div class="skill-meta">
+                                                <span class="skill-hours">⏱️ ${skill.estimatedHours}小时</span>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+function initSkillTree() {
+    loadSkillsData();
+    renderSkillTree();
+}
+    </script>
+    
+    <script>
+  // ==================== PWA功能 ====================
+  
+  // 注册Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        const registration = await navigator.serviceWorker.register('./sw.js');
+        console.log('✅ Service Worker注册成功:', registration.scope);
+        
+        // 监听更新可用事件
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed') {
+              if (navigator.serviceWorker.controller) {
+                // 有新更新可用
+                console.log('🔄 发现新版本，刷新页面以更新');
+                showUpdateNotification();
+              }
+            }
+          });
+        });
+        
+        // 检查更新
+        registration.update();
+      } catch (error) {
+        console.error('❌ Service Worker注册失败:', error);
+      }
+    });
+  }
+  
+  // 显示更新通知
+  function showUpdateNotification() {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      padding: 15px 20px;
+      background: #1e293b;
+      border: 1px solid #3b82f6;
+      border-radius: 12px;
+      color: #e2e8f0;
+      font-size: 14px;
+      z-index: 10001;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    `;
+    
+    notification.innerHTML = `
+      <span>🔄 发现新版本</span>
+      <button onclick="window.location.reload()" style="
+        padding: 6px 12px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+      ">刷新更新</button>
+    `;
+    
+    document.body.appendChild(notification);
+  }
+  
+  // 安装到主屏幕功能
+  let deferredPrompt = null;
+  const IS_IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const IS_ANDROID = /Android/.test(navigator.userAgent);
+  
+  // 判断是否是PWA模式（已安装）
+  function isStandalone() {
+    return window.matchMedia('(display-mode: standalone)').matches ||
+           (window.navigator.standalone);
+  }
+  
+  // 监听beforeinstallprompt事件（Android）
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isStandalone()) {
+      showInstallButton();
+    }
+  });
+  
+  // 监听安装完成事件
+  window.addEventListener('appinstalled', () => {
+    console.log('👍 PWA已成功安装');
+    hideInstallButton();
+  });
+  
+  // iOS Safari的安装引导
+  function showIOSInstallGuide() {
+    if (isStandalone()) return;
+    
+    const guide = document.createElement('div');
+    guide.id = 'ios-install-guide';
+    guide.innerHTML = `
+      <div style="
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        padding: 20px;
+        z-index: 10000;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      ">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">📱</div>
+          <div style="flex: 1;">
+            <div style="font-size: 16px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px;">安装到主屏幕</div>
+            <div style="font-size: 13px; color: #94a3b8;">点击底部「分享」按钮，选择「添加到主屏幕」</div>
+          </div>
+          <button onclick="document.getElementById('ios-install-guide').remove()" style="
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 8px;
+            background: #334155;
+            color: #94a3b8;
+            font-size: 16px;
+            cursor: pointer;
+          ">×</button>
+        </div>
+        <div style="margin-top: 12px; display: flex; justify-content: flex-end; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <div style="width: 24px; height: 24px; background: #334155; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px;">⬆️</div>
+            <span style="font-size: 12px; color: #94a3b8;">分享</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <div style="width: 24px; height: 24px; background: #334155; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px;">📲</div>
+            <span style="font-size: 12px; color: #94a3b8;">添加到主屏幕</span>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(guide);
+  }
+  
+  // 显示安装按钮（Android）
+  function showInstallButton() {
+    let installButton = document.getElementById('pwa-install-btn');
+    if (!installButton) {
+      installButton = document.createElement('button');
+      installButton.id = 'pwa-install-btn';
+      installButton.textContent = '📲 安装到桌面';
+      installButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 16px 24px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        border: none;
+        border-radius: 28px;
+        font-size: 15px;
+        font-weight: 600;
+        z-index: 10000;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        transition: all 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      `;
+      
+      installButton.addEventListener('click', () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choice) => {
+            if (choice.outcome === 'accepted') {
+              console.log('👍 用户同意安装');
+            } else {
+              console.log('👎 用户拒绝安装');
+            }
+            deferredPrompt = null;
+            hideInstallButton();
+          });
+        }
+      });
+      
+      // 移动端触摸效果
+      installButton.addEventListener('touchstart', () => {
+        installButton.style.transform = 'scale(0.95)';
+      });
+      installButton.addEventListener('touchend', () => {
+        installButton.style.transform = 'scale(1)';
+      });
+      
+      document.body.appendChild(installButton);
+    } else {
+      installButton.style.display = 'block';
+    }
+  }
+  
+  function hideInstallButton() {
+    const installButton = document.getElementById('pwa-install-btn');
+    if (installButton) {
+      installButton.style.display = 'none';
+    }
+    const iosGuide = document.getElementById('ios-install-guide');
+    if (iosGuide) {
+      iosGuide.remove();
+    }
+  }
+  
+  // 初始化安装提示
+  setTimeout(() => {
+    if (!isStandalone()) {
+      if (IS_IOS) {
+        // iOS: 显示安装引导
+        showIOSInstallGuide();
+      } else if (IS_ANDROID && !deferredPrompt) {
+        // Android: 如果还没有prompt，延迟显示按钮
+        setTimeout(() => {
+          if (!isStandalone() && !deferredPrompt) {
+            showInstallButton();
+          }
+        }, 3000);
+      }
+    }
+  }, 1000);
+  
+  // 检查是否已安装
+  if (isStandalone()) {
+    hideInstallButton();
+  }
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "晓黎个人成长规划",
+  "short_name": "人生规划",
+  "start_url": "./my-plan-standalone.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "description": "个人成长路线规划表 - 技能追踪与目标管理",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "display_override": ["standalone", "minimal-ui"]
+}
