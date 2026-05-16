@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>晓黎个人成长路线规划表</title>
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="个人成长路线规划表 - 技能追踪与目标管理">
+    <link rel="manifest" href="manifest.json">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    border: 1px solid #334155;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.dashboard {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.card {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.card h3 {
+    color: #94a3b8;
+    margin-bottom: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.card .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.card .progress-container progress {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    appearance: none;
+    background: #334155;
+}
+
+.card .progress-container progress::-webkit-progress-bar {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+.card .progress-container progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 4px;
+}
+
+.card .progress-container progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 4px;
+}
+
+.card .progress-percent {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #10b981;
+    min-width: 35px;
+    text-align: right;
+}
+
+main {
+    margin-bottom: 24px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+.left-column h2,
+.right-column h2 {
+    margin-bottom: 20px;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-list input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+    cursor: pointer;
+}
+
+.task-list label {
+    cursor: pointer;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+}
+
+.task-list input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.skill-category {
+    margin-bottom: 24px;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.category-info h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.category-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-wrapper progress {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    appearance: none;
+    background: #334155;
+}
+
+.progress-wrapper progress::-webkit-progress-bar {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+.progress-wrapper progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 4px;
+}
+
+.progress-wrapper progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 4px;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3b82f6;
+    min-width: 40px;
+    text-align: right;
+}
+
+.hours-info {
+    font-size: 0.8125rem;
+    color: #94a3b8;
+}
+
+.toggle-btn {
+    padding: 6px 16px;
+    background: #334155;
+    border: none;
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: #475569;
+    color: #e2e8f0;
+}
+
+.skill-group {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.skill-group.expanded {
+    max-height: 2000px;
+}
+
+.level-group {
+    margin-bottom: 20px;
+}
+
+.level-group:last-child {
+    margin-bottom: 0;
+}
+
+.level-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #334155;
+}
+
+.level-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-item {
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #334155;
+    transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+    border-color: #475569;
+}
+
+.skill-item.completed {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.skill-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.skill-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #10b981;
+    cursor: pointer;
+}
+
+.skill-checkbox label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.skill-item.completed .skill-checkbox label {
+    color: #10b981;
+    text-decoration: line-through;
+}
+
+.skill-description {
+    font-size: 0.8125rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-hours {
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #1e293b;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+footer {
+    padding-bottom: 20px;
+}
+
+.deposit-form {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+}
+
+.deposit-form input[type="number"] {
+    flex: 1;
+    padding: 12px 16px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: #e2e8f0;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.deposit-form input[type="number"]:focus {
+    border-color: #3b82f6;
+}
+
+.deposit-form input[type="number"]::placeholder {
+    color: #64748b;
+}
+
+.deposit-form button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.deposit-form button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    header {
+        padding: 16px;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+    }
+
+    .dashboard {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card h3 {
+        font-size: 0.8125rem;
+    }
+
+    .card .value {
+        font-size: 1.25rem;
+    }
+
+    .main-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .left-column,
+    .right-column {
+        padding: 16px;
+    }
+
+    .left-column h2,
+    .right-column h2 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+    .task-list li {
+        gap: 10px;
+    }
+
+    .task-list input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .task-list label {
+        font-size: 0.875rem;
+    }
+
+    .skill-category {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .category-info h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .progress-wrapper {
+        width: 100%;
+    }
+
+    .toggle-btn {
+        align-self: flex-end;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .skill-item {
+        padding: 12px;
+    }
+
+    .skill-checkbox {
+        gap: 8px;
+    }
+
+    .skill-checkbox input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .skill-checkbox label {
+        font-size: 0.875rem;
+    }
+
+    .skill-description {
+        font-size: 0.75rem;
+    }
+
+    .skill-hours {
+        font-size: 0.6875rem;
+        padding: 3px 6px;
+    }
+
+    .deposit-form {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .deposit-form input[type="number"],
+    .deposit-form button {
+        padding: 12px;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+
+    .skill-category {
+        padding: 12px;
+    }
+
+    .skill-item {
+        padding: 10px;
+    }
+
+    .skill-description {
+        display: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 我的人生逆袭计划</h1>
+    </header>
+    
+    <section class="dashboard">
+        <div class="card">
+            <h3>⚡ 生产力基金</h3>
+            <div class="value">¥ <span id="productivityCurrent">0</span> / <span id="productivityTarget">30000</span></div>
+            <div class="progress-container">
+                <progress id="productivityProgress" value="0" max="100"></progress>
+                <span id="productivityProgressText" class="progress-percent">0%</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>🎯 机会基金</h3>
+            <div class="value">¥ <span id="opportunityCurrent">0</span> / <span id="opportunityTarget">20000</span></div>
+            <div class="progress-container">
+                <progress id="opportunityProgress" value="0" max="100"></progress>
+                <span id="opportunityProgressText" class="progress-percent">0%</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>🛡️ 风险缓冲金</h3>
+            <div class="value">¥ <span id="riskbufferCurrent">0</span> / <span id="riskbufferTarget">10000</span></div>
+            <div class="progress-container">
+                <progress id="riskbufferProgress" value="0" max="100"></progress>
+                <span id="riskbufferProgressText" class="progress-percent">0%</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="dashboard" style="margin-bottom: 24px;">
+        <div class="card" style="flex: 1 1 100%;">
+            <h3>📚 25岁之前要做的事</h3>
+            <div class="value"><span id="passedExam">0</span> / <span id="totalExam">5</span> 件</div>
+        </div>
+        <div class="card" style="flex: 1 1 100%;">
+            <h3>⏰ 倒计时</h3>
+            <div class="value">距离18岁还有 <span id="countdown">-</span> 天</div>
+        </div>
+    </section>
+    
+    <main class="main-content">
+        <section class="left-column">
+            <h2>🚀 逆袭路线图</h2>
+            <ul class="task-list">
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">进厂打工,稳定存款3w</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">完成HTML/CSS基础学习</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">报名南昌大学自考</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task4">
+                    <label for="task4">学习全栈编程</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task5">
+                    <label for="task5">搭建个人博客网站</label>
+                </li>
+            </ul>
+        </section>
+        
+        <section class="right-column">
+            <h2>🛠️ 技能树</h2>
+            <div id="skill-tree-container"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <form class="deposit-form" id="depositForm">
+            <select id="fundSelect" style="padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #e2e8f0; font-size: 0.875rem;">
+                <option value="productivity">⚡ 生产力基金</option>
+                <option value="opportunity">🎯 机会基金</option>
+                <option value="riskbuffer">🛡️ 风险缓冲金</option>
+            </select>
+            <input type="number" id="depositInput" placeholder="输入存款金额" min="0" step="0.01">
+            <button type="submit">存入基金</button>
+        </form>
+    </footer>
+
+    <script>
+const STORAGE_KEYS = {
+    FUNDS: 'growth_plan_funds',
+    PASSED_EXAM: 'growth_plan_passed_exam',
+    TOTAL_EXAM: 'growth_plan_total_exam',
+    TASKS: 'growth_plan_tasks',
+    SKILLS: 'growth_plan_skills'
+};
+
+const DEFAULT_DATA = {
+    funds: {
+        productivity: { current: 0, target: 30000, name: '生产力基金' },
+        opportunity: { current: 0, target: 20000, name: '机会基金' },
+        riskbuffer: { current: 0, target: 10000, name: '风险缓冲金' }
+    },
+    passedExam: 0,
+    totalExam: 5,
+    tasks: {
+        task1: false,
+        task2: false,
+        task3: false,
+        task4: false,
+        task5: false
+    },
+    skills: {
+        HTMLCSS: 0,
+        JavaScript: 0,
+        React: 0,
+        NodeJS: 0,
+        MySQL: 0,
+        Redis: 0,
+        Python: 0,
+        NumPyPandas: 0,
+        MachineLearning: 0,
+        NetworkSecurityBasics: 0,
+        Cryptography: 0,
+        WebSecurity: 0,
+        PenetrationTesting: 0,
+        MalwareAnalysis: 0,
+        SIEM: 0,
+        IncidentResponse: 0,
+        CloudSecurity: 0,
+        SecureCoding: 0,
+        EthicalHacking: 0
+    }
+};
+
+const SKILL_CATEGORIES = {
+    frontend: {
+        name: '前端开发',
+        skills: ['HTMLCSS', 'JavaScript', 'React']
+    },
+    backend: {
+        name: '后端开发',
+        skills: ['NodeJS', 'MySQL', 'Redis']
+    },
+    datascience: {
+        name: '数据科学',
+        skills: ['Python', 'NumPyPandas', 'MachineLearning']
+    },
+    cybersecurity: {
+        name: '网络安全',
+        skills: ['NetworkSecurityBasics', 'Cryptography', 'WebSecurity', 'PenetrationTesting', 'MalwareAnalysis', 'SIEM', 'IncidentResponse', 'CloudSecurity', 'SecureCoding', 'EthicalHacking']
+    }
+};
+
+const SKILL_NAMES = {
+    HTMLCSS: 'HTML/CSS',
+    JavaScript: 'JavaScript',
+    React: 'React',
+    NodeJS: 'Node.js',
+    MySQL: 'MySQL',
+    Redis: 'Redis',
+    Python: 'Python',
+    NumPyPandas: 'NumPy/Pandas',
+    MachineLearning: '机器学习',
+    NetworkSecurityBasics: '网络安全基础',
+    Cryptography: '密码学',
+    WebSecurity: 'Web安全',
+    PenetrationTesting: '渗透测试',
+    MalwareAnalysis: '恶意软件分析',
+    SIEM: '安全信息与事件管理',
+    IncidentResponse: '应急响应',
+    CloudSecurity: '云安全',
+    SecureCoding: '安全编码',
+    EthicalHacking: '道德黑客'
+};
+
+let elements = {};
+
+function initElements() {
+    elements = {
+        productivityCurrent: document.getElementById('productivityCurrent'),
+        productivityTarget: document.getElementById('productivityTarget'),
+        productivityProgress: document.getElementById('productivityProgress'),
+        productivityProgressText: document.getElementById('productivityProgressText'),
+        opportunityCurrent: document.getElementById('opportunityCurrent'),
+        opportunityTarget: document.getElementById('opportunityTarget'),
+        opportunityProgress: document.getElementById('opportunityProgress'),
+        opportunityProgressText: document.getElementById('opportunityProgressText'),
+        riskbufferCurrent: document.getElementById('riskbufferCurrent'),
+        riskbufferTarget: document.getElementById('riskbufferTarget'),
+        riskbufferProgress: document.getElementById('riskbufferProgress'),
+        riskbufferProgressText: document.getElementById('riskbufferProgressText'),
+        passedExam: document.getElementById('passedExam'),
+        totalExam: document.getElementById('totalExam'),
+        countdown: document.getElementById('countdown'),
+        depositForm: document.getElementById('depositForm'),
+        depositInput: document.getElementById('depositInput'),
+        fundSelect: document.getElementById('fundSelect'),
+        taskCheckboxes: document.querySelectorAll('.task-list input[type="checkbox"]')
+    };
+}
+
+let appData = {
+    funds: JSON.parse(JSON.stringify(DEFAULT_DATA.funds)),
+    passedExam: DEFAULT_DATA.passedExam,
+    totalExam: DEFAULT_DATA.totalExam,
+    tasks: { ...DEFAULT_DATA.tasks },
+    skills: { ...DEFAULT_DATA.skills }
+};
+
+function loadFromStorage(key, defaultValue) {
+    try {
+        const stored = localStorage.getItem(key);
+        return stored ? JSON.parse(stored) : defaultValue;
+    } catch (error) {
+        console.warn(`读取存储失败 (${key}):`, error);
+        return defaultValue;
+    }
+}
+
+function saveToStorage(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+        console.warn(`保存存储失败 (${key}):`, error);
+    }
+}
+
+function calculateDaysRemaining(targetDate) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const target = new Date(targetDate);
+    target.setHours(0, 0, 0, 0);
+    const diffTime = target - today;
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+}
+
+function getCompletedTaskCount() {
+    return Object.values(appData.tasks).filter(completed => completed).length;
+}
+
+function initData() {
+    const savedFunds = loadFromStorage(STORAGE_KEYS.FUNDS, {});
+    appData.funds = { ...DEFAULT_DATA.funds, ...savedFunds };
+    appData.passedExam = loadFromStorage(STORAGE_KEYS.PASSED_EXAM, DEFAULT_DATA.passedExam);
+    appData.totalExam = loadFromStorage(STORAGE_KEYS.TOTAL_EXAM, DEFAULT_DATA.totalExam);
+    appData.tasks = loadFromStorage(STORAGE_KEYS.TASKS, { ...DEFAULT_DATA.tasks });
+    const savedSkills = loadFromStorage(STORAGE_KEYS.SKILLS, {});
+    appData.skills = { ...DEFAULT_DATA.skills, ...savedSkills };
+}
+
+function updateFundUI(fundKey) {
+    const fund = appData.funds[fundKey];
+    const currentEl = elements[`${fundKey}Current`];
+    const targetEl = elements[`${fundKey}Target`];
+    const progressEl = elements[`${fundKey}Progress`];
+    const progressTextEl = elements[`${fundKey}ProgressText`];
+    
+    if (currentEl) currentEl.textContent = fund.current.toFixed(2);
+    if (targetEl) targetEl.textContent = fund.target.toFixed(2);
+    
+    const progress = Math.min((fund.current / fund.target) * 100, 100);
+    if (progressEl) progressEl.value = progress;
+    if (progressTextEl) progressTextEl.textContent = `${Math.round(progress)}%`;
+}
+
+function updateUI() {
+    updateFundUI('productivity');
+    updateFundUI('opportunity');
+    updateFundUI('riskbuffer');
+    
+    elements.passedExam.textContent = appData.passedExam;
+    elements.totalExam.textContent = appData.totalExam;
+    
+    const birthday = new Date('2009-06-04');
+    const eighteenBirthday = new Date(birthday);
+    eighteenBirthday.setFullYear(birthday.getFullYear() + 18);
+    const daysRemaining = calculateDaysRemaining(eighteenBirthday);
+    elements.countdown.textContent = daysRemaining;
+    
+    elements.taskCheckboxes.forEach(checkbox => {
+        const taskId = checkbox.id;
+        checkbox.checked = appData.tasks[taskId] || false;
+    });
+}
+
+function bindTaskEvents() {
+    elements.taskCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const taskId = this.id;
+            appData.tasks[taskId] = this.checked;
+            saveToStorage(STORAGE_KEYS.TASKS, appData.tasks);
+            
+            const completedCount = getCompletedTaskCount();
+            appData.passedExam = completedCount;
+            elements.passedExam.textContent = appData.passedExam;
+            saveToStorage(STORAGE_KEYS.PASSED_EXAM, appData.passedExam);
+        });
+    });
+}
+
+function bindDepositEvent() {
+    elements.depositForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const fundKey = elements.fundSelect.value;
+        const inputValue = elements.depositInput.value.trim();
+        
+        if (!inputValue) {
+            alert('请输入存款金额');
+            return;
+        }
+        
+        const depositAmount = parseFloat(inputValue);
+        
+        if (isNaN(depositAmount)) {
+            alert('请输入有效的数字');
+            elements.depositInput.value = '';
+            return;
+        }
+        
+        if (depositAmount < 0) {
+            alert('存款金额不能为负数');
+            elements.depositInput.value = '';
+            return;
+        }
+        
+        appData.funds[fundKey].current += depositAmount;
+        saveToStorage(STORAGE_KEYS.FUNDS, appData.funds);
+        updateFundUI(fundKey);
+        
+        elements.depositInput.value = '';
+        alert(`成功向「${appData.funds[fundKey].name}」存入 ¥${depositAmount.toFixed(2)}`);
+    });
+}
+
+const INITIAL_SKILLS_DATA = [
+    { id: 'fe-html', name: 'HTML5 语义化', category: 'frontend', level: '基础', description: '掌握HTML5语义化标签，构建结构清晰的页面', estimatedHours: 20, completed: false },
+    { id: 'fe-css', name: 'CSS3 基础', category: 'frontend', level: '基础', description: '掌握CSS选择器、盒模型、布局等核心概念', estimatedHours: 30, completed: false },
+    { id: 'fe-flexbox', name: 'Flexbox 弹性布局', category: 'frontend', level: '核心', description: '掌握Flexbox布局，实现复杂的页面排版', estimatedHours: 25, completed: false },
+    { id: 'fe-grid', name: 'CSS Grid 网格布局', category: 'frontend', level: '核心', description: '掌握Grid网格布局，构建二维布局系统', estimatedHours: 30, completed: false },
+    { id: 'fe-responsive', name: '响应式设计', category: 'frontend', level: '核心', description: '掌握媒体查询，实现多端适配', estimatedHours: 25, completed: false },
+    { id: 'fe-js-es6', name: 'JavaScript ES6+', category: 'frontend', level: '核心', description: '掌握ES6+新特性：箭头函数、解构、Promise等', estimatedHours: 40, completed: false },
+    { id: 'fe-js-dom', name: 'DOM 操作', category: 'frontend', level: '核心', description: '掌握DOM操作、事件处理、动画效果', estimatedHours: 35, completed: false },
+    { id: 'fe-vue3', name: 'Vue3 框架', category: 'frontend', level: '框架', description: '掌握Vue3组合式API、响应式系统、组件开发', estimatedHours: 60, completed: false },
+    { id: 'fe-vue-router', name: 'Vue Router', category: 'frontend', level: '框架', description: '掌握Vue Router路由管理、导航守卫', estimatedHours: 25, completed: false },
+    { id: 'fe-vuex', name: 'Pinia 状态管理', category: 'frontend', level: '框架', description: '掌握Pinia状态管理，实现跨组件数据共享', estimatedHours: 30, completed: false },
+    { id: 'fe-performance', name: '前端性能优化', category: 'frontend', level: '进阶', description: '掌握性能优化技巧：懒加载、代码分割、缓存策略', estimatedHours: 40, completed: false },
+    { id: 'be-nodejs', name: 'Node.js 基础', category: 'backend', level: '基础', description: '掌握Node.js运行时、模块系统、异步编程', estimatedHours: 35, completed: false },
+    { id: 'be-express', name: 'Express 框架', category: 'backend', level: '框架', description: '掌握Express路由、中间件、RESTful API设计', estimatedHours: 40, completed: false },
+    { id: 'be-mysql', name: 'MySQL 数据库', category: 'backend', level: '核心', description: '掌握MySQL数据库设计、SQL查询、索引优化', estimatedHours: 45, completed: false },
+    { id: 'be-sequelize', name: 'Sequelize ORM', category: 'backend', level: '框架', description: '掌握Sequelize ORM，实现数据库操作抽象', estimatedHours: 30, completed: false },
+    { id: 'be-redis', name: 'Redis 缓存', category: 'backend', level: '进阶', description: '掌握Redis缓存、Session管理、消息队列', estimatedHours: 35, completed: false },
+    { id: 'be-auth', name: '用户认证授权', category: 'backend', level: '核心', description: '掌握JWT、OAuth2、Session/Cookie认证机制', estimatedHours: 40, completed: false },
+    { id: 'be-security', name: 'Web 安全', category: 'backend', level: '进阶', description: '掌握XSS、CSRF、SQL注入等安全防护', estimatedHours: 35, completed: false },
+    { id: 'be-api', name: 'API 设计', category: 'backend', level: '核心', description: '掌握RESTful API设计规范、Swagger文档', estimatedHours: 25, completed: false },
+    { id: 'be-deploy', name: '部署运维', category: 'backend', level: '进阶', description: '掌握Docker、Nginx、PM2部署配置', estimatedHours: 40, completed: false },
+    { id: 'be-testing', name: '单元测试', category: 'backend', level: '进阶', description: '掌握Jest、Mocha测试框架，编写单元测试', estimatedHours: 30, completed: false },
+    { id: 'ds-python', name: 'Python 基础', category: 'datascience', level: '基础', description: '掌握Python语法、数据类型、函数、面向对象', estimatedHours: 40, completed: false },
+    { id: 'ds-numpy', name: 'NumPy 数值计算', category: 'datascience', level: '核心', description: '掌握NumPy数组操作、矩阵运算、广播机制', estimatedHours: 30, completed: false },
+    { id: 'ds-pandas', name: 'Pandas 数据分析', category: 'datascience', level: '核心', description: '掌握Pandas数据结构、数据清洗、数据聚合', estimatedHours: 45, completed: false },
+    { id: 'ds-matplotlib', name: 'Matplotlib 可视化', category: 'datascience', level: '核心', description: '掌握Matplotlib绘图、图表美化、交互式图表', estimatedHours: 30, completed: false },
+    { id: 'ds-seaborn', name: 'Seaborn 高级可视化', category: 'datascience', level: '核心', description: '掌握Seaborn统计可视化、热力图、分布图', estimatedHours: 25, completed: false },
+    { id: 'ds-ml-basics', name: '机器学习基础', category: 'datascience', level: '核心', description: '掌握监督学习、无监督学习、模型评估', estimatedHours: 50, completed: false },
+    { id: 'ds-scikit-learn', name: 'Scikit-learn', category: 'datascience', level: '框架', description: '掌握Scikit-learn算法库：分类、回归、聚类', estimatedHours: 45, completed: false },
+    { id: 'ds-deep-learning', name: '深度学习入门', category: 'datascience', level: '进阶', description: '掌握神经网络、CNN、RNN基础概念', estimatedHours: 60, completed: false },
+    { id: 'ds-tensorflow', name: 'TensorFlow/PyTorch', category: 'datascience', level: '框架', description: '掌握深度学习框架，构建和训练模型', estimatedHours: 70, completed: false },
+    { id: 'ds-nlp', name: '自然语言处理', category: 'datascience', level: '进阶', description: '掌握NLP基础：文本预处理、词向量、情感分析', estimatedHours: 55, completed: false },
+    { id: 'cyber-basics', name: '网络安全基础', category: 'cybersecurity', level: '基础', description: '掌握网络基础、TCP/IP协议、网络拓扑、OSI七层模型', estimatedHours: 30, completed: false },
+    { id: 'cyber-crypto', name: '密码学', category: 'cybersecurity', level: '核心', description: '掌握对称加密、非对称加密、哈希算法、数字签名', estimatedHours: 35, completed: false },
+    { id: 'cyber-web', name: 'Web安全', category: 'cybersecurity', level: '核心', description: '掌握XSS、CSRF、SQL注入、文件上传、命令注入等Web安全漏洞', estimatedHours: 40, completed: false },
+    { id: 'cyber-pentest', name: '渗透测试', category: 'cybersecurity', level: '核心', description: '掌握渗透测试方法论：信息收集、漏洞扫描、漏洞利用', estimatedHours: 50, completed: false },
+    { id: 'cyber-malware', name: '恶意软件分析', category: 'cybersecurity', level: '进阶', description: '掌握恶意软件样本分析、沙箱分析、反逆向', estimatedHours: 45, completed: false },
+    { id: 'cyber-siem', name: '安全信息与事件管理', category: 'cybersecurity', level: '框架', description: '掌握SIEM系统、日志分析、安全监控', estimatedHours: 35, completed: false },
+    { id: 'cyber-incident', name: '应急响应', category: 'cybersecurity', level: '核心', description: '掌握网络安全事件的应急响应流程和处置方法', estimatedHours: 40, completed: false },
+    { id: 'cyber-cloud', name: '云安全', category: 'cybersecurity', level: '进阶', description: '掌握AWS/Azure/GCP云安全、云原生安全、容器安全', estimatedHours: 50, completed: false },
+    { id: 'cyber-securecoding', name: '安全编码', category: 'cybersecurity', level: '进阶', description: '掌握安全编码规范、代码审计、漏洞修复', estimatedHours: 40, completed: false },
+    { id: 'cyber-ethical', name: '道德黑客', category: 'cybersecurity', level: '进阶', description: '掌握道德黑客认证(CEH)相关技能、漏洞利用', estimatedHours: 60, completed: false }
+];
+
+let skillsData = [];
+
+const CATEGORY_CONFIG = {
+    frontend: { name: '前端开发', icon: '🎨', color: '#3b82f6' },
+    backend: { name: '后端开发', icon: '⚙️', color: '#10b981' },
+    datascience: { name: '数据科学', icon: '🧪', color: '#f59e0b' },
+    cybersecurity: { name: '网络安全', icon: '🔒', color: '#ef4444' }
+};
+
+const LEVEL_ORDER = ['基础', '核心', '框架', '进阶'];
+
+function saveSkillsData() {
+    try {
+        localStorage.setItem('skillsData', JSON.stringify(skillsData));
+        return true;
+    } catch (error) {
+        console.error('保存技能数据失败:', error);
+        return false;
+    }
+}
+
+function loadSkillsData() {
+    try {
+        const savedData = localStorage.getItem('skillsData');
+        if (savedData) {
+            skillsData = JSON.parse(savedData);
+            skillsData = skillsData.map(skill => ({
+                ...INITIAL_SKILLS_DATA.find(s => s.id === skill.id) || skill,
+                ...skill
+            }));
+        } else {
+            skillsData = JSON.parse(JSON.stringify(INITIAL_SKILLS_DATA));
+        }
+        return skillsData;
+    } catch (error) {
+        console.error('加载技能数据失败:', error);
+        skillsData = JSON.parse(JSON.stringify(INITIAL_SKILLS_DATA));
+        return skillsData;
+    }
+}
+
+function calculateCategoryProgress(category) {
+    const categorySkills = skillsData.filter(skill => skill.category === category);
+    if (categorySkills.length === 0) return 0;
+    const completedCount = categorySkills.filter(skill => skill.completed).length;
+    return Math.round((completedCount / categorySkills.length) * 100);
+}
+
+function calculateCategoryHours(category) {
+    const categorySkills = skillsData.filter(skill => skill.category === category);
+    const totalHours = categorySkills.reduce((sum, skill) => sum + skill.estimatedHours, 0);
+    const completedHours = categorySkills.filter(skill => skill.completed).reduce((sum, skill) => sum + skill.estimatedHours, 0);
+    return { totalHours, completedHours };
+}
+
+function updateSkillCompletion(skillId, completed) {
+    const skill = skillsData.find(s => s.id === skillId);
+    if (skill) {
+        skill.completed = completed;
+        saveSkillsData();
+        updateCategoryProgress(skill.category);
+    }
+}
+
+function updateCategoryProgress(category) {
+    const progress = calculateCategoryProgress(category);
+    const hours = calculateCategoryHours(category);
+    
+    const progressBar = document.getElementById(`progress-${category}`);
+    const progressText = document.getElementById(`progress-text-${category}`);
+    const hoursText = document.getElementById(`hours-text-${category}`);
+    
+    if (progressBar) progressBar.value = progress;
+    if (progressText) progressText.textContent = `${progress}%`;
+    if (hoursText) hoursText.textContent = `${hours.completedHours}/${hours.totalHours}h`;
+}
+
+function toggleCategory(category) {
+    const skillGroup = document.getElementById(`skill-group-${category}`);
+    const toggleBtn = document.getElementById(`toggle-btn-${category}`);
+    
+    if (skillGroup && toggleBtn) {
+        const isExpanded = skillGroup.classList.toggle('expanded');
+        toggleBtn.textContent = isExpanded ? '收起' : '展开';
+    }
+}
+
+function renderSkillTree() {
+    const container = document.getElementById('skill-tree-container');
+    if (!container) return;
+    
+    let html = '';
+    
+    Object.keys(CATEGORY_CONFIG).forEach(category => {
+        const config = CATEGORY_CONFIG[category];
+        const categorySkills = skillsData.filter(skill => skill.category === category);
+        
+        const skillsByLevel = {};
+        LEVEL_ORDER.forEach(level => {
+            skillsByLevel[level] = categorySkills.filter(skill => skill.level === level);
+        });
+        
+        const progress = calculateCategoryProgress(category);
+        const hours = calculateCategoryHours(category);
+        
+        html += `
+            <div class="skill-category" data-category="${category}">
+                <div class="category-header">
+                    <div class="category-info">
+                        <h3>${config.icon} ${config.name}</h3>
+                        <div class="category-stats">
+                            <div class="progress-wrapper">
+                                <progress id="progress-${category}" value="${progress}" max="100"></progress>
+                                <span id="progress-text-${category}" class="progress-text">${progress}%</span>
+                            </div>
+                            <div class="hours-info" id="hours-text-${category}">
+                                ${hours.completedHours}/${hours.totalHours}h
+                            </div>
+                        </div>
+                    </div>
+                    <button id="toggle-btn-${category}" class="toggle-btn" onclick="toggleCategory('${category}')">
+                        展开
+                    </button>
+                </div>
+                
+                <div id="skill-group-${category}" class="skill-group">
+                    ${LEVEL_ORDER.map(level => {
+                        const levelSkills = skillsByLevel[level];
+                        if (levelSkills.length === 0) return '';
+                        
+                        return `
+                            <div class="level-group">
+                                <h4 class="level-title">${level}</h4>
+                                <div class="level-skills">
+                                    ${levelSkills.map(skill => `
+                                        <div class="skill-item ${skill.completed ? 'completed' : ''}">
+                                            <div class="skill-checkbox">
+                                                <input type="checkbox" 
+                                                       id="skill-${skill.id}" 
+                                                       ${skill.completed ? 'checked' : ''}
+                                                       onchange="updateSkillCompletion('${skill.id}', this.checked)">
+                                                <label for="skill-${skill.id}">${skill.name}</label>
+                                            </div>
+                                            <p class="skill-description">${skill.description}</p>
+                                            <div class="skill-meta">
+                                                <span class="skill-hours">⏱️ ${skill.estimatedHours}小时</span>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+function initSkillTree() {
+    loadSkillsData();
+    renderSkillTree();
+}
+
+window.saveSkillsData = saveSkillsData;
+window.loadSkillsData = loadSkillsData;
+window.calculateCategoryProgress = calculateCategoryProgress;
+window.updateSkillCompletion = updateSkillCompletion;
+window.toggleCategory = toggleCategory;
+window.renderSkillTree = renderSkillTree;
+window.initSkillTree = initSkillTree;
+
+function initApp() {
+    initElements();
+    initData();
+    updateUI();
+    bindTaskEvents();
+    bindDepositEvent();
+    initSkillTree();
+    
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker注册成功'))
+                .catch(err => console.log('Service Worker注册失败:', err));
+        });
+    }
+    
+
+    
+    console.log('🎯 个人成长路线规划表初始化完成');
+}
+
+document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
